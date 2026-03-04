@@ -1,94 +1,72 @@
-# \# Quick-Calc
+# Quick-Calc
 
-# 
+Quick-Calc is a lightweight command-line calculator built in Python. It supports addition, subtraction, multiplication, and division, along with a clear/reset function. The project demonstrates a professional Git workflow with a multi-layered automated testing strategy using pytest.
 
-# Quick-Calc is a lightweight command-line calculator application built in Python. It supports the four fundamental arithmetic operations — addition, subtraction, multiplication, and division — along with a clear/reset function. The project demonstrates a professional software development workflow using Git version control and a multi-layered automated testing strategy with pytest.
+---
 
-# 
+## Setup Instructions
 
-# ---
+**Prerequisites:** Python 3.9 or higher must be installed.
 
-# 
+1. Clone the repository:
 
-# \## Setup Instructions
+```bash
+git clone https://github.com/Alex-Glitch-X/swe-testing-assignment.git
+cd swe-testing-assignment
+```
 
-# 
+2. Install dependencies:
 
-# \*\*Prerequisites:\*\* Python 3.9 or higher must be installed.
+```bash
+pip install -r requirements.txt
+```
 
-# 
+---
 
-# 1\. Clone the repository:
+## How to Run Tests
 
-# &nbsp;  ```bash
+Run the full test suite with a single command:
 
-# &nbsp;  git clone https://github.com/Alex-Glitch-X/swe-testing-assignment.git
+```bash
+pytest -v
+```
 
-# &nbsp;  cd swe-testing-assignment
+Expected output: **16 passed**
 
-# &nbsp;  ```
+---
 
-# 
+## Supported Operations
 
-# 2\. Install dependencies:
+| Operation | Example |
+|---|---|
+| Addition | 5 + 3 = 8 |
+| Subtraction | 10 − 4 = 6 |
+| Multiplication | 6 × 7 = 42 |
+| Division | 10 ÷ 2 = 5 |
+| Clear | Resets result to 0 |
 
-# &nbsp;  ```bash
+---
 
-# &nbsp;  pip install -r requirements.txt
+## Testing Framework Research: Pytest vs Unittest
 
-# &nbsp;  ```
+Python's standard library includes `unittest`, a class-based testing framework modelled after Java's JUnit. It requires developers to subclass `unittest.TestCase` and use specific assertion methods like `assertEqual` and `assertRaises`. While reliable and dependency-free, the verbosity of defining classes for every test group makes it feel heavyweight for small, focused projects.
 
-# 
+`pytest` is a third-party framework where each plain Python function prefixed with `test_` is automatically discovered and run as a test. Its minimal boilerplate, powerful `assert` introspection, and fixture system produce far more readable code. When an assertion fails, pytest displays the actual vs. expected values inline — unittest simply states the test failed without this detail.
 
-# ---
+For this project, **pytest** was chosen because its readability and fixture support make the test suite easier to maintain and extend. It is the industry-standard choice for modern Python projects. The only trade-off is the external dependency, which is trivially managed via `requirements.txt`.
 
-# 
+---
 
-# \## How to Run Tests
+## Project Structure
 
-# 
-
-# Execute the full test suite with a single command from the project root:
-
-# 
-
-# ```bash
-
-# pytest
-
-# ```
-
-# 
-
-# To view a verbose, per-test breakdown:
-
-# 
-
-# ```bash
-
-# pytest -v
-
-# ```
-
-# 
-
-# ---
-
-# 
-
-# \## Testing Framework Research: Pytest vs Unittest
-
-# 
-
-# Python's standard library includes `unittest`, a class-based testing framework modelled after Java's JUnit. It requires developers to subclass `unittest.TestCase` and use specific assertion methods like `assertEqual` and `assertRaises`. While this structured approach offers reliability and zero external dependencies, the verbosity of defining classes and methods for every test group makes it feel heavyweight for small, focused projects.
-
-# 
-
-# `pytest` is a third-party framework that treats each plain Python function prefixed with `test\_` as a test case. Its automatic test discovery, minimal boilerplate, and powerful `assert` introspection produce far more readable failure messages. When an assertion fails, pytest displays the actual vs. expected values directly inline, while unittest simply states that the test failed. Additionally, pytest's fixture system provides a clean, reusable mechanism for setting up shared state.
-
-# 
-
-# For this project, \*\*pytest\*\* was chosen because its readability and fixture support make tests easier to maintain and extend. It is the industry-standard choice for modern Python projects and integrates seamlessly with CI/CD pipelines. The only trade-off is the external dependency, which is trivially managed via `requirements.txt`.
-
-
-
+```
+swe-testing-assignment/
+├── calculator.py
+├── requirements.txt
+├── README.md
+├── TESTING.md
+└── tests/
+    ├── __init__.py
+    ├── test_unit.py
+    └── test_integration.py
+```
