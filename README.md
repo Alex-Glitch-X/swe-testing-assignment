@@ -6,7 +6,7 @@ Quick-Calc is a lightweight command-line calculator built in Python. It supports
 
 ## Setup Instructions
 
-**Prerequisites:** Python 3.9 or higher must be installed.
+**Prerequisites:** Python 3.9 or higher — download from https://www.python.org/downloads/
 
 1. Clone the repository:
 
@@ -32,6 +32,8 @@ pytest -v
 ```
 
 Expected output: **16 passed**
+
+> If `pytest` is not recognised, use: `python -m pytest -v`
 
 ---
 
